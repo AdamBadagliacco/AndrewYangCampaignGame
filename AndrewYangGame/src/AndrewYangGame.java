@@ -48,20 +48,7 @@ public class AndrewYangGame extends Application {
 
 		// ImageView winScreen = new ImageView();
 		for (int i = 0; i < 6; i++) {
-			final ImageViewAdam p = new ImageViewAdam(getClass().getResource("resources/1.PNG").toURI().toString(), 0); // p
-																														// for
-																														// polygon
-																														// (They
-																														// were
-																														// polygons
-																														// in
-																														// an
-																														// earlier
-																														// version
-																														// they
-																														// are
-																														// dollars
-																														// now)
+			final ImageViewAdam p = new ImageViewAdam(getClass().getResource("resources/1.PNG").toURI().toString(), 0);
 			p.setPreserveRatio(true);
 			p.setFitHeight(24);
 			p.setX(Math.random() * WIDTH - 24);
@@ -73,8 +60,8 @@ public class AndrewYangGame extends Application {
 						collected = 0;
 						dollarIndex++;
 					}
-					if (dollarIndex == 4) { // Star disapperaing instead of
-											// respawing
+					if (dollarIndex == 4) { 
+											// respawning
 						root.getChildren().remove(p);
 						p.setId(p.getAdamID() + 1);
 						if (collected == 5) {
@@ -82,11 +69,9 @@ public class AndrewYangGame extends Application {
 							try {
 								l = new ImageView(getClass().getResource("resources/Slide2.JPG").toURI().toString()); // resources/Slide2.JPG
 							} catch (URISyntaxException e) {
-								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-							// getClass().getResource("za.jpg").toExternalForm()
-							// "resources/Slide2.JPG"
+							
 							root.getChildren().add(l);
 							l.setPreserveRatio(true);
 							l.setFitHeight(HEIGHT);
@@ -125,18 +110,13 @@ public class AndrewYangGame extends Application {
 			root.getChildren().add(p);
 		}
 
-		final ImageView a = new ImageView(getClass().getResource("resources/YangRunning.gif").toURI().toString()); // a
-																													// for
-																													// andrew
-																													// //resources/YangRunning.gif
+		final ImageView a = new ImageView(getClass().getResource("resources/YangRunning.gif").toURI().toString());
 		a.setMouseTransparent(true);
 		a.setPreserveRatio(true);
 		a.setFitHeight(60);
 		root.getChildren().add(a);
 
-		final ImageView e = new ImageView(getClass().getResource("resources/advisary.jpg").toURI().toString()); // e
-																												// enemy
-																												// //resources/advisary.jpg
+		final ImageView e = new ImageView(getClass().getResource("resources/advisary.jpg").toURI().toString());
 		e.setX(WIDTH - 100);
 		e.setY(HEIGHT - 100);
 		e.setPreserveRatio(true);
@@ -170,20 +150,20 @@ public class AndrewYangGame extends Application {
 
 		final ImageView t = new ImageView(getClass().getResource("resources/Slide1.JPG").toURI().toString());// (getClass().getResource("file:resources/Slide1.JPG").toExternalForm());
 		root.getChildren().add(t);
+
 		t.setX(-50);
 		t.setPreserveRatio(true);
 		t.setFitHeight(HEIGHT);
 		t.setOnMousePressed(new EventHandler<MouseEvent>() {
 			public void handle(MouseEvent m) {
 				root.getChildren().remove(t);
-				scene.setCursor(Cursor.NONE);// No mouse since yangs running
-												// animation will be used as a
-												// mouse
+				scene.setCursor(Cursor.NONE);
+				e.setX(700);
 
 			}
 		});
 
-		// Animation Timer needed to make news consistantly move toward you
+		
 		AnimationTimer animation = new AnimationTimer() {
 			@Override
 			public void handle(long now) {
